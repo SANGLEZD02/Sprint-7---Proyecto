@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
+st.header('Visualización de datos de anuncios de venta de coches')
 
 # Leer los datos del archivo CSV
 car_data = pd.read_csv('vehicles_us.csv')
@@ -15,6 +16,7 @@ if hist_button:
     st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
 
     # Crear un histograma utilizando plotly.graph_objects
+    plotly_histogram = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
     # Se crea una figura vacía y luego se añade un rastro de histograma
     fig = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
 
