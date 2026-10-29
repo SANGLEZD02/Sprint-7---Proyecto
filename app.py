@@ -16,12 +16,15 @@ if hist_button:
     st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
 
     # Crear un histograma utilizando plotly.graph_objects
-    plotly_histogram = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
     # Se crea una figura vacía y luego se añade un rastro de histograma
     fig = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
 
     # Opcional: Puedes añadir un título al gráfico si lo deseas
     fig.update_layout(title_text='Distribución del Odómetro')
+
+    st.write('Histograma de dispersión para los datos de anuncios de venta de coches')
+    fig = go.Figure(data=go.Scatter(x=car_data['odometer'], y=car_data['price'], mode='markers'))
+    fig.update_layout(title='Dispersión de Precio vs Odómetro', xaxis_title='Odómetro', yaxis_title='Precio')
 
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
