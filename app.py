@@ -22,14 +22,16 @@ if hist_button:
     # Opcional: Puedes añadir un título al gráfico si lo deseas
     fig.update_layout(title_text='Distribución del Odómetro')
 
+    # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
+    st.plotly_chart(fig, use_container_width=True)
+
+histogram_button_dispertion = st.button('Construir histograma de dispersión')
+if histogram_button_dispertion:
+    # Crear un gráfico de dispersión
     fig = go.Figure(data=[go.Scatter(x=car_data['odometer'], y=car_data['price'], mode='markers')])
 
     # Opcional: Puedes añadir un título al gráfico si lo deseas
     fig.update_layout(title_text='Relación entre Odómetro y Precio')
 
-    # Mostrar el gráfico Plotly
-    fig.show()
-
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
-    # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
     st.plotly_chart(fig, use_container_width=True)
